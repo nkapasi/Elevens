@@ -9,5 +9,10 @@ public class CardTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		Card one = new Card( "King", "Hearts", 13);
+		Card two = new Card("Queen", "Spades", 12);
+		Card three = new Card("Jack", 'Spades', 11);
+
+		one.matches(two);
 	}
 }
