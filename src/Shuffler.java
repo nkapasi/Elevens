@@ -1,6 +1,8 @@
 /**
  * This class provides a convenient way to test shuffling methods.
  */
+import java.util.Random;
+
 public class Shuffler {
 
 	/**
@@ -17,7 +19,7 @@ public class Shuffler {
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
-		int[] values1 = {0, 1, 2, 3};
+		int[] values1 = {0, 1, 2, 3,4,5,6,7,8,9};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
@@ -51,6 +53,22 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[values.length];
+		int k = 0;
+		for(int j = 0; j<shuffled.length/2; j++){
+			shuffled[k] = values[j];
+			k = k+2;
+		}
+		k = 1;
+		for(int j = shuffled.length/2; j<shuffled.length; j++){
+			shuffled[k] = values[j];
+			k = k+2;
+		}
+
+
+		for(int z = 0; z<shuffled.length; z++){
+			values[z] = shuffled[z];
+		}
 	}
 
 	/**
@@ -66,5 +84,13 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for(int k = values.length-1; k>0; k--){
+			int r = (int)(Math.random()*(k+1));
+			int n = values[k];
+			values[k] = values[r];
+			values[r] = n;
+
+		}
+
 	}
 }
